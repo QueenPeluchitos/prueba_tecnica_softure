@@ -72,7 +72,7 @@ export function PeluchesClient({
         <>
             <SearchBar onSearch={setSearchTerm} />
             <CategoryFilter value={selectedCategory} onChange={setCategory} />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mt-10">
             {filteredPeluches.map((peluche) => (
                 <Card key={peluche.id} className="hover:shadow-lg transition-shadow">
                     <CardHeader className="pb-3">
