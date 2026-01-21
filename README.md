@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prueba Técnica - Sistema POS SOFTURE
 
-## Getting Started
+Sistema de punto de venta (POS) desarrollado con **Next.js 16.1.3**, **TypeScript**, **Supabase** y **Tailwind CSS v4**.
 
-First, run the development server:
+## Características Implementadas
 
-```bash
+### Autenticación
+- Login seguro con Supabase Auth
+- Rutas protegidas con validación de sesión
+- Redirect automático a login para usuarios no autenticados
+
+### Dashboard
+- Estadísticas en tiempo real (ventas hoy, total productos, stock bajo, ingresos semanales)
+- Gráficos interactivos con ApexCharts
+- Colores dinámicos según tema activo
+
+### Gestión de Productos
+- Listado con paginación
+- SearchBar
+- Filtrado por categoría
+- CRUD completo (crear, editar, eliminar)
+
+### Registro de Ventas
+- Inserción con precio y cantidad
+- Total calculado automáticamente
+- Filtrado por rango de fechas
+- Historial con detalles
+
+### Sistema de Temas
+- Tema Claro: Paleta rosa (#ec4899)
+- Tema Oscuro: Paleta morada (#a855f7)
+- Toggle en Navbar
+- Persistencia en localStorage
+
+## Despliegue
+
+**App en vivo**: [https://prueba-tecnica-softure.vercel.app](https://prueba-tecnica-softure-l34ih2g8d-dianas-projects-49e61575.vercel.app)
+
+## Stack Técnico
+
+- Next.js 16.1.3 con Turbopack
+- TypeScript
+- Supabase (PostgreSQL)
+- Tailwind CSS v4 + CSS Variables
+- ApexCharts
+- shadcn/ui
+
+## Instalación
+
+\`\`\`bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Requisitos Cumplidos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Autenticación funcional
+- CRUD de productos completo
+- Registro de ventas
+- Dashboard con gráficas
+- Deployment en Vercel
+- Búsqueda
+- Filtrado por fechas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Requisitos extras
+- Sistema de temas
+- Responsive design
+- Loading states
