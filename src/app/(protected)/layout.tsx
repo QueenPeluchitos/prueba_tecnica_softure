@@ -1,7 +1,6 @@
 'use server'
 import { redirect } from "next/navigation"
-import { createServerClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers"
+import { supabaseServer } from "@/lib/server"
 import Navbar from "@/components/Navbar"
 import {ThemeProvider} from "@/context/Temas"
 
@@ -10,26 +9,7 @@ export default async function ProtectedLayout({
 }: {
     children: React.ReactNode
 }) {
-    const cookieStore = await cookies()
-    const supabase = createServerClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-        {
-            cookies: {
-                getAll() {
-                    return cookieStore.getAll()
-                },
-                setAll(cookies: any[]) {
-                    cookies.forEach(({ name, value, options }) => {
-                        try {
-                            cookieStore.set(name, value, options)
-                        } catch (error) {
-                        }
-                    })
-                }
-            }
-        }
-    )
+    const supabase = await supabaseServer()
     const {
         data: { session },
     } = await supabase.auth.getSession()
