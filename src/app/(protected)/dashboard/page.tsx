@@ -4,6 +4,7 @@ import { supabase } from '@/lib/supabase'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { AlertCircle, ShoppingCart, Package, TrendingUp } from 'lucide-react'
+import { ApexOptions } from 'apexcharts'
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
@@ -64,16 +65,16 @@ export default function DashboardPage() {
     },
   ]
 
-  const ventasPorDiaOptions = {
-    chart: { type: 'bar', toolbar: { show: false } },
-    xaxis: { 
-      categories: ultimos7Dias.map(f => {
-        const date = new Date(f)
-        return date.toLocaleDateString('es-ES', { month: 'short', day: 'numeric' })
-      })
-    },
-    colors: [palette[0] || '#ec4899'],
-    plotOptions: { bar: { borderRadius: 4 } },
+  const ventasPorDiaOptions: ApexOptions = {
+  chart: { type: 'bar', toolbar: { show: false } },
+  xaxis: { 
+    categories: ultimos7Dias.map(f => {
+      const date = new Date(f)
+      return date.toLocaleDateString('es-ES', { month: 'short', day: 'numeric' })
+    })
+  },
+  colors: [palette[0] || '#ec4899'],
+  plotOptions: { bar: { borderRadius: 4 } },
   }
 
   const categorias: Record<string, number> = {}
@@ -82,10 +83,12 @@ export default function DashboardPage() {
   })
 
   const productosPorCategoriaSeries = Object.values(categorias)
-  const productosPorCategoriaOptions = {
-    labels: Object.keys(categorias),
-    colors: palette.length ? palette : ['#ec4899', '#f43fa0', '#fb71b1', '#fda4cb', '#fecddf'],
-    legend: { position: 'bottom' as const },
+  const productosPorCategoriaOptions: ApexOptions = {
+  labels: Object.keys(categorias),
+  colors: palette.length
+    ? palette
+    : ['#ec4899', '#f43fa0', '#fb71b1', '#fda4cb', '#fecddf'],
+  legend: { position: 'bottom' },
   }
 
   const ingresosSeries = [
@@ -99,7 +102,7 @@ export default function DashboardPage() {
     },
   ]
 
-  const ingresosOptions = {
+  const ingresosOptions: ApexOptions = {
     chart: { type: 'line', toolbar: { show: false } },
     xaxis: {
       categories: ultimos7Dias.map(f => {
