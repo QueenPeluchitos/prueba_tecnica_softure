@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { signOut } from "@/lib/auth"
+import { LogOut } from "lucide-react"
 
 export default function Navbar() {
     const router = useRouter()
@@ -15,7 +16,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-pink-50 shadow-md">
+    <nav className="bg-pink-200 shadow-md">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex h-14 items-center justify-between">
           <div className="flex gap-4">
@@ -26,8 +27,8 @@ export default function Navbar() {
               Dashboard
             </Link>
             <Link
-              href="/productos"
-              className={`text-pink-500 hover:text-pink-700 font-medium${path === "/productos" ? " underline" : ""}`}
+              href="/peluches"
+              className={`text-pink-500 hover:text-pink-700 font-medium${path === "/peluches" ? " underline" : ""}`}
             >
               Productos
             </Link>
@@ -40,8 +41,9 @@ export default function Navbar() {
           </div>
           <button
             onClick={handleLogout}
-            className="bg-pink-300 text-white py-2 px-4 rounded hover:bg-pink-400"
+            className="flex items-center bg-pink-300 text-white py-2 px-2 rounded hover:bg-pink-400"
           >
+            <LogOut className="w-4 h-4 mr-2" />
             Cerrar sesión
           </button>
 

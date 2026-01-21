@@ -1,6 +1,8 @@
+'use server'
 import { redirect } from "next/navigation"
 import { createServerClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
+import Navbar from "@/components/Navbar"
 
 export default async function ProtectedLayout({
     children,
@@ -18,7 +20,10 @@ export default async function ProtectedLayout({
                 },
                 setAll(cookies: any[]) {
                     cookies.forEach(({ name, value, options }) => {
-                        cookieStore.set(name, value, options)
+                        try {
+                            cookieStore.set(name, value, options)
+                        } catch (error) {
+                        }
                     })
                 }
             }
@@ -30,5 +35,7 @@ export default async function ProtectedLayout({
     if (!session) {
         redirect("/login")
     }
-    return <>{children}</>
+    return <>
+    <Navbar />
+    {children}</>
 }
