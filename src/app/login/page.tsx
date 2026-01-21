@@ -6,13 +6,13 @@ import { useRouter } from 'next/navigation';
 function InputField({ label, type, value, onChange, required }: { label: string; type: string; value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; required?: boolean }) {
     return (
         <div className="mb-4">
-            <label className="block text-pink-500 text-sm font-bold mb-2">{label}</label>
+            <label className="block text-primary text-sm font-bold mb-2">{label}</label>
             <input
                 type={type}
                 value={value}
                 onChange={onChange}
                 required={required}
-                className="w-full px-3 py-2 border border-pink-200 rounded focus:outline-none focus:border-pink-500"
+                className="w-full px-3 py-2 border border-primary/30 rounded focus:outline-none focus:border-primary"
             />
         </div>
     );
@@ -42,10 +42,10 @@ const handleSubmit = async (event: React.FormEvent) => {
 }
 
 return (
-        <div className="min-h-screen flex items-center justify-center bg-pink-100">
-            <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
-                <h2 className="text-2xl mb-4 text-center text-pink-500">Iniciar Sesión</h2>
-                <div className="text-pink-300">
+        <div className="min-h-screen flex items-center justify-center bg-background">
+            <form onSubmit={handleSubmit} className="bg-card p-6 rounded shadow-md w-full max-w-sm">
+                <h2 className="text-2xl mb-4 text-center text-primary">Iniciar Sesión</h2>
+                <div>
                     <InputField
                         label="Correo Electrónico"
                         type="email"
@@ -54,7 +54,7 @@ return (
                         required
                     />
                 </div>
-                <div className="text-pink-300">
+                <div>
                     <InputField
                         label="Contraseña"
                         type="password"
@@ -67,7 +67,7 @@ return (
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600 disabled:opacity-50"
+                    className="w-full bg-primary text-primary-foreground py-2 px-4 rounded hover:opacity-90 disabled:opacity-50"
                 >
                     {loading ? "Cargando..." : "Iniciar Sesión"}
                 </button>

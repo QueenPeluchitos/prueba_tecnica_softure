@@ -27,13 +27,13 @@ export default async function VentasPage({ searchParams }: { searchParams: Promi
     if (error) return <p>Error al cargar: {error.message}</p>;
 
     return (
-        <div className="p-6 bg-pink-50 text-pink-500 min-h-screen space-y-6">
+        <div className="p-6 bg-background text-foreground min-h-screen space-y-6">
             <div>
-                <h1 className="text-center text-2xl font-bold mb-6">Realizar venta</h1>
+                <h1 className="text-center text-2xl font-bold mb-6 text-primary">Realizar venta</h1>
                 <VentasClient produtos={produtos ?? []} />
             </div>
-            <div className="max-w-7xl mx-auto mb-6 text-pink-500">
-                <h1 className="text-center text-2xl font-bold mb-6">Historial de Ventas</h1>
+            <div className="max-w-7xl mx-auto mb-6">
+                <h1 className="text-center text-2xl font-bold mb-6 text-primary">Historial de Ventas</h1>
                 <VentasHistorialClient ventas={ventas ?? []} />
             </div>
         </div>

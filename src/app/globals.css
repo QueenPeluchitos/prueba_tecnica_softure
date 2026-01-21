@@ -3,39 +3,36 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --radius: 0.625rem;
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+@layer base {
+  :root {
+    --primary: rgb(236 72 153);
+    --primary-foreground: rgb(255 255 255);
+    --background: rgb(255 251 255);
+    --foreground: rgb(236 72 153);
+    --card: rgb(255 255 255);
+    --card-foreground: rgb(236 72 153);
+    --radius: 0.5rem;
+    --chart-1: rgb(236 72 153);
+    --chart-2: rgb(238, 66, 198);
+    --chart-3: rgb(246, 127, 202);
+    --chart-4: rgb(243, 144, 218);
+    --chart-5: rgb(246, 169, 229);
+  }
+
+  [data-theme="dark"] {
+    --primary: rgb(168 85 247);
+    --primary-foreground: rgb(249, 231, 255);
+    --background: rgb(17 24 39);
+    --foreground: rgb(157, 94, 216);
+    --card: rgb(31 41 55);
+    --card-foreground: rgb(243 244 246);
+    --radius: 0.5rem;
+    --chart-1: rgb(168 85 247);
+    --chart-2: rgb(203, 72, 236);
+    --chart-3: rgb(184, 45, 212);
+    --chart-4: rgb(183, 36, 251);
+    --chart-5: rgb(229, 125, 252);
+  }
 }
 
 @theme inline {
@@ -82,7 +79,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }

@@ -13,7 +13,7 @@ export function CategoryFilter({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="p-2 border rounded border-pink-300"
+        className="p-2 border rounded border-primary"
       >
         <option value="">Todas</option>
         <option value="Animales">Animales</option>

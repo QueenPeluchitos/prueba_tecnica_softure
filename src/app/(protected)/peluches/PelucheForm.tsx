@@ -20,11 +20,11 @@ export function PelucheForm() {
     }
 
     return (
-        <form action={handleSubmit} className="flex flex-col max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
-            <input name="nombre" type="text" placeholder="Nombre" required className="w-full p-2 border border-pink-300 rounded" />
-            <input name="sku" type="text" placeholder="SKU" required className="w-full p-2 border border-pink-300 rounded" />
+        <form action={handleSubmit} className="flex flex-col max-w-md mx-auto bg-card p-6 rounded-lg shadow-md space-y-4">
+            <input name="nombre" type="text" placeholder="Nombre" required className="w-full p-2 border border-primary/30 rounded" />
+            <input name="sku" type="text" placeholder="SKU" required className="w-full p-2 border border-primary/30 rounded" />
 
-            <select name="categoria" required className="w-full p-2 border border-pink-300 rounded">
+            <select name="categoria" required className="w-full p-2 border border-primary/30 rounded">
                 <option value="">Selecciona una categoría</option>
                 <option value="Animales">Animales</option>
                 <option value="Personajes">Personajes</option>
@@ -32,18 +32,18 @@ export function PelucheForm() {
                 <option value="Otros">Otros</option>
             </select>
             <div className="w-full flex flex-row space-x-1">
-                <input name="precio" type="number" step="0.01" placeholder="Precio" required className="w-full p-2 border border-pink-300 rounded" />
-                <input name="stock" type="number" placeholder="Stock" required className="w-full p-2 border border-pink-300 rounded" />
-                <input name="stock_minimo" type="number" placeholder="Stock mínimo" required className="w-full p-2 border border-pink-300 rounded" />
+                <input name="precio" type="number" step="0.01" placeholder="Precio" required className="w-full p-2 border border-primary/30 rounded" />
+                <input name="stock" type="number" placeholder="Stock" required className="w-full p-2 border border-primary/30 rounded" />
+                <input name="stock_minimo" type="number" placeholder="Stock mínimo" required className="w-full p-2 border border-primary/30 rounded" />
             </div>
             <input
                 name="imagen_url"
                 type="url"
                 placeholder="URL de la imagen (opcional)"
-                className="w-full p-2 border border-pink-300 rounded"
+                className="w-full p-2 border border-primary/30 rounded"
             />
             <div className="flex justify-center">
-                <button type="submit" disabled={loading} className="bg-pink-500 text-white py-2 px-4 max-w-xs rounded hover:bg-pink-600 disabled:opacity-50">
+                <button type="submit" disabled={loading} className="bg-primary text-primary-foreground py-2 px-4 max-w-xs rounded hover:opacity-90 disabled:opacity-50">
                     {loading ? "Guardando..." : "Agregar peluche"}
                 </button>
             </div>

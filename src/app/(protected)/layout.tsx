@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { createServerClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import Navbar from "@/components/Navbar"
+import {ThemeProvider} from "@/context/Temas"
 
 export default async function ProtectedLayout({
     children,
@@ -35,7 +36,10 @@ export default async function ProtectedLayout({
     if (!session) {
         redirect("/login")
     }
-    return <>
-    <Navbar />
-    {children}</>
+    return (
+        <ThemeProvider>
+            <Navbar />
+            {children}
+        </ThemeProvider>
+    )
 }

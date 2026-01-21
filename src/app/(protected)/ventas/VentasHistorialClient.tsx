@@ -38,24 +38,24 @@ export default function VentasHistorialClient({ ventas }: { ventas: Venta[] }) {
   }
 
   return (
-    <Card>
+    <Card className="bg-card text-foreground rounded-lg">
       <CardHeader>
-        <CardTitle className="text-pink-500">Ventas Recientes</CardTitle>
+        <CardTitle className="text-primary">Ventas Recientes</CardTitle>
         <div className="flex gap-4 mt-4 flex-wrap items-end">
           <div className="flex flex-col gap-2">
-            <label className="text-sm text-gray-600 flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
+            <label className="text-sm text-foreground/70 flex items-center gap-2">
+              <Calendar className="w-4 h-4 " />
               Fecha inicio
             </label>
             <input
               type="date"
               value={fechaInicio}
               onChange={(e) => setFechaInicio(e.target.value)}
-              className="border border-pink-200 rounded px-3 py-2 text-sm"
+              className="border rounded-md px-3 py-2 text-sm"
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm text-gray-600 flex items-center gap-2">
+            <label className="text-sm text-foreground/70 flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               Fecha fin
             </label>
@@ -63,49 +63,49 @@ export default function VentasHistorialClient({ ventas }: { ventas: Venta[] }) {
               type="date"
               value={fechaFin}
               onChange={(e) => setFechaFin(e.target.value)}
-              className="border border-pink-200 rounded px-3 py-2 text-sm"
+              className="border rounded-md px-3 py-2 text-sm"
             />
           </div>
           <button
             onClick={handleFilter}
-            className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition-colors"
+            className="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:opacity-90 transition-colors"
           >
             Filtrar
           </button>
           <button
             onClick={handleReset}
-            className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition-colors"
+            className="bg-muted text-foreground px-4 py-2 rounded-md hover:opacity-90 transition-colors"
           >
             Limpiar
           </button>
         </div>
       </CardHeader>
       <CardContent>
-        <table className="w-full table-auto border-collapse border border-pink-200">
+        <table className="w-full table-auto border-collapse border">
           <thead>
             <tr>
-              <th className="border-b border-pink-200 py-2 px-6 text-left text-pink-500">Producto</th>
-              <th className="border-b border-pink-200 py-2 px-6 text-left text-pink-500">Cantidad</th>
-              <th className="border-b border-pink-200 py-2 px-6 text-left text-pink-500">Total</th>
-              <th className="border-b border-pink-200 py-2 px-6 text-left text-pink-500">Método de Pago</th>
-              <th className="border-b border-pink-200 py-2 px-6 text-left text-pink-500">Fecha de Venta</th>
+              <th className="border-b py-2 px-6 text-left text-primary">Producto</th>
+              <th className="border-b py-2 px-6 text-left text-primary">Cantidad</th>
+              <th className="border-b py-2 px-6 text-left text-primary">Total</th>
+              <th className="border-b py-2 px-6 text-left text-primary">Método de Pago</th>
+              <th className="border-b py-2 px-6 text-left text-primary">Fecha de Venta</th>
             </tr>
           </thead>
           <tbody>
             {ventas.length === 0 ? (
               <tr>
-                <td colSpan={5} className="text-center py-4 text-gray-500">
+                <td colSpan={5} className="text-center py-4 text-muted-foreground">
                   No hay ventas para mostrar
                 </td>
               </tr>
             ) : (
               ventas.map((venta) => (
-                <tr key={venta.id} className="hover:bg-pink-50 text-gray-500 transition-colors duration-200">
-                  <td className="border-b border-pink-200 py-2 px-6">{getProductoNombre(venta.producto)}</td>
-                  <td className="border-b border-pink-200 py-2 px-6">{venta.cantidad}</td>
-                  <td className="border-b border-pink-200 py-2 px-6">${venta.total?.toFixed?.(2) ?? '0.00'}</td>
-                  <td className="border-b border-pink-200 py-2 px-6">{venta.metodo_pago}</td>
-                  <td className="border-b border-pink-200 py-2 px-6">
+                <tr key={venta.id} className="hover:bg-muted transition-colors duration-200">
+                  <td className="border-b py-2 px-6">{getProductoNombre(venta.producto)}</td>
+                  <td className="border-b py-2 px-6">{venta.cantidad}</td>
+                  <td className="border-b py-2 px-6">${venta.total?.toFixed?.(2) ?? '0.00'}</td>
+                  <td className="border-b py-2 px-6">{venta.metodo_pago}</td>
+                  <td className="border-b py-2 px-6">
                     {venta.fecha_venta ? new Date(venta.fecha_venta).toLocaleDateString() : ''}
                   </td>
                 </tr>

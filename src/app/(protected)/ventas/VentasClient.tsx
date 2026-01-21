@@ -66,19 +66,19 @@ export default function VentasClient({ produtos }: { produtos: Producto[] }) {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {produtos?.map((producto) => (
-          <div key={producto.id} className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+          <div key={producto.id} className="bg-card text-foreground p-4 rounded-lg shadow-md flex flex-col items-center">
             {producto.imagen_url ? (
               <img src={producto.imagen_url} alt={producto.nombre} className="w-32 h-32 object-cover mb-4 rounded-md" />
             ) : (
-                <div className="w-32 h-32 bg-gray-100 rounded-md flex items-center justify-center mb-4">
-                    <span className="text-sm text-gray-400">Sin imagen</span>
+                <div className="w-32 h-32 bg-muted rounded-md flex items-center justify-center mb-4">
+                    <span className="text-sm text-muted-foreground">Sin imagen</span>
                 </div>
             )}
             <h2 className="text-lg font-semibold mb-2">{producto.nombre}</h2>
             <p className="mb-2">Precio: ${producto.precio?.toFixed?.(2) ?? '0.00'}</p>
             <button
               onClick={() => agregarCarrito(producto)}
-              className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition-colors"
+              className="bg-primary text-primary-foreground px-4 py-2 rounded hover:opacity-90 transition-colors"
             >
               Agregar al carrito
             </button>
@@ -86,19 +86,19 @@ export default function VentasClient({ produtos }: { produtos: Producto[] }) {
         ))}
       </div>
         
-        <div className="bg-white p-4 rounded-lg shadow-md max-w-md mx-auto mt-6">
+        <div className="bg-card text-foreground p-4 rounded-lg shadow-md max-w-md mx-auto mt-6">
             <h3 className="text-lg font-bold mb-2">Carrito</h3>
             {carrito.length === 0 ? (
-            <p className="text-gray-500">No hay productos en el carrito.</p>
+          <p className="text-muted-foreground">No hay productos en el carrito.</p>
             ) : (
             <ul className="space-y-2">
                 {carrito.map(item => (
-                <li key={item.id} className="flex justify-between items-center bg-gray-50 p-2 rounded">
+                <li key={item.id} className="flex justify-between items-center bg-muted p-2 rounded-md">
                     <span>{item.nombre} x {item.cantidad}</span>
                     <span>${(item.precio * item.cantidad).toFixed(2)}</span>
                     <button 
                     onClick={() => eliminarProducto(item)}
-                    className="ml-2 text-pink-500 hover:text-pink-700"
+              className="ml-2 text-primary hover:opacity-80"
                     >
                         <Eraser className="w-4 h-4" />
                     </button>
@@ -117,7 +117,7 @@ export default function VentasClient({ produtos }: { produtos: Producto[] }) {
                         alert("Método de pago inválido")
                     }
                 }}
-                className="mt-4 w-full bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition-colors"
+            className="mt-4 w-full bg-primary text-primary-foreground px-4 py-2 rounded hover:opacity-90 transition-colors"
             >
                 <div className="flex items-center justify-center gap-2">
                     <ShoppingCart className="w-5 h-5" />
